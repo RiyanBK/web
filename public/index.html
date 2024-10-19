@@ -3,28 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Static Website</title>
+    <meta name="description" content="A website about Riyan and his profile.">
+    <title>About Riyan</title>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script defer src="scripts/main.js"></script>
 </head>
 <body>
-    <section id="section1" class="page-section">
-        <h1>Welcome to Section 1</h1>
-        <p>Content for section 1 goes here.</p>
-    </section>
-    
-    <section id="section2" class="page-section">
-        <h1>Welcome to Section 2</h1>
-        <p>Content for section 2 goes here.</p>
-    </section>
-    
-    <section id="section3" class="page-section">
-        <h1>Welcome to Section 3</h1>
-        <p>Content for section 3 goes here.</p>
-    </section>
+    <header class="fixed-header">
+        <img src="profilepicture.png" alt="Profile picture" class="profile-pic">
+        <h1>Riyan</h1>
+    </header>
 
-    <section id="counter" class="page-section">
-        <h1>Counter</h1>
-        <p>Count: <span id="count">0</span></p>
+    <div class="container">
+        <canvas id="drawingCanvas"></canvas>
+
+        <section class="about">
+            <h2>About Me</h2>
+            <p>Hi, I'm Riyan. This is the website I created for my Computer Science class, Honors Topics in Computer Science.</p>
+        </section>
+
+        <section class="kaary">
+            <h2>Meet Kaary</h2>
+            <img src="kaary.jpg" alt="Kaary the dog" class="kaary-pic">
+            <p class="caption">This is my dog Kaary. She is seven years old.</p>
+        </section>
+        
+        <footer>
+            <p>© 2024 Riyan</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
