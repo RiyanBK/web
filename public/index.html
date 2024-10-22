@@ -3,40 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A website about Riyan and his profile.">
-    <title>About Riyan</title>
-    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:wght@400&display=swap" rel="stylesheet">
+    <title>Riyan's Drawing Board</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="fixed-header">
-        <img src="profilepicture.png" alt="Profile picture" class="profile-pic">
+    <div class="fixed-header">
+        <img src="profilepicture.png" alt="Profile Picture" class="profile-pic">
         <h1>Riyan</h1>
-    </header>
-
-    <div class="container">
-        <canvas id="drawingCanvas"></canvas>
-
-        <section class="about">
-            <h2>About Me</h2>
-            <p>Hi, I'm Riyan. This is the website I created for my Computer Science class, Honors Topics in Computer Science.</p>
-        </section>
-
-        <section class="kaary">
-            <h2>Meet Kaary</h2>
-            <img src="kaary.jpg" alt="Kaary the dog" class="kaary-pic">
-            <p class="caption">This is my dog Kaary. She is seven years old.</p>
-        </section>
-
-        <section class="drawing-info">
-            <p>Click and drag to draw on the background!</p>
-        </section>
-        
-        <footer>
-            <p>© 2024 Riyan</p>
-        </footer>
     </div>
-
+    <canvas id="drawingCanvas"></canvas>
+    
     <script src="script.js"></script>
+    <script src="kaaryBouncing.js"></script> <!-- New JS file for bouncing images -->
 </body>
 </html>

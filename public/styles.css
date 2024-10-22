@@ -6,15 +6,15 @@
 
 body {
     font-family: 'IM Fell English', serif;
-    color: #4A148C;
-    text-align: center;
-    padding: 20px;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;  /* Prevent scrollbars from showing */
+    background-color: #D1C4E9;  /* Purple background */
 }
 
 .fixed-header {
     position: sticky;
     top: 0;
-    left: 0;
     width: 100%;
     background-color: #B39DDB;
     text-align: center;
@@ -27,7 +27,7 @@ body {
 }
 
 .fixed-header h1 {
-    font-family: 'IM Fell English', serif;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     color: #4A148C;
     font-size: 2.5rem;
     margin-left: 15px;
@@ -40,71 +40,19 @@ body {
     border: 2px solid #4A148C;
 }
 
-.container {
-    position: relative;
-    max-width: 800px;
-    margin: 120px auto 0 auto;
-    padding: 20px;
-    background-color: #D1C4E9;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    z-index: 2;
-}
-
-.about, .kaary, .drawing-info {
-    margin: 20px 0;
-}
-
-h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-}
-
-.kaary-pic {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-    margin-top: 20px;
-}
-
-.caption {
-    margin-top: 10px;
-    font-size: 1.1rem;
-    color: #4A148C;
-    font-style: italic;
-}
-
-.drawing-info {
-    margin-top: 30px;
-    font-size: 1.2rem;
-    color: #4A148C;
-    font-style: italic;
-}
-
-footer {
-    margin-top: 40px;
-    font-size: 0.9rem;
-    color: #4A148C;
-}
-
-/* Make sure the canvas is behind content but allows scrolling */
 #drawingCanvas {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     background-color: transparent;
-    z-index: 0; /* Behind content */
-    pointer-events: none;
+    z-index: 0;
 }
 
-html, body {
-    height: 100%; /* Ensures body covers entire page for scrolling */
+.bouncing-kaary {
+    pointer-events: none; /* Prevent images from capturing click events */
+    z-index: 1000;        /* Ensure they stay on top */
+    transition: all 0.3s ease-in-out;
 }
+
