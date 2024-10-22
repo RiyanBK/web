@@ -5,8 +5,8 @@
 }
 
 body {
-    font-family: 'IM Fell English', serif; /* Change font to IM Fell English */
-    color: #4A148C; /* Dark purple text color for contrast */
+    font-family: 'IM Fell English', serif;
+    color: #4A148C;
     text-align: center;
     padding: 20px;
 }
@@ -16,7 +16,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #B39DDB; /* Light lavender for the header */
+    background-color: #B39DDB;
     text-align: center;
     padding: 10px 0;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
@@ -27,17 +27,17 @@ body {
 }
 
 .fixed-header h1 {
-    font-family: 'IM Fell English', serif; /* Use IM Fell English font */
-    color: #4A148C; /* Dark purple */
+    font-family: 'IM Fell English', serif;
+    color: #4A148C;
     font-size: 2.5rem;
-    margin-left: 15px; /* Adds space between the profile pic and the text */
+    margin-left: 15px;
 }
 
 .fixed-header .profile-pic {
-    width: 50px; /* Smaller size for the profile picture */
+    width: 50px;
     height: 50px;
     border-radius: 50%;
-    border: 2px solid #4A148C; /* Dark purple border */
+    border: 2px solid #4A148C;
 }
 
 .container {
@@ -45,16 +45,14 @@ body {
     max-width: 800px;
     margin: 120px auto 0 auto;
     padding: 20px;
-    background-color: #D1C4E9; /* Lighter lavender for the container */
+    background-color: #D1C4E9;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
+    z-index: 2;
 }
 
-.about, .kaary {
+.about, .kaary, .drawing-info {
     margin: 20px 0;
-    position: relative;
-    z-index: 2;
 }
 
 h2 {
@@ -78,23 +76,35 @@ p {
 .caption {
     margin-top: 10px;
     font-size: 1.1rem;
-    color: #4A148C; /* Dark purple */
+    color: #4A148C;
+    font-style: italic;
+}
+
+.drawing-info {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    color: #4A148C;
     font-style: italic;
 }
 
 footer {
     margin-top: 40px;
     font-size: 0.9rem;
-    color: #4A148C; /* Dark purple */
+    color: #4A148C;
 }
 
+/* Make sure the canvas is behind content but allows scrolling */
 #drawingCanvas {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #E8EAF6; /* Background color for drawing */
-    cursor: crosshair;
-    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent;
+    z-index: 0; /* Behind content */
+    pointer-events: none;
+}
+
+html, body {
+    height: 100%; /* Ensures body covers entire page for scrolling */
 }

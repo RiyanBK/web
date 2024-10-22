@@ -1,47 +1,56 @@
 const canvas = document.getElementById('drawingCanvas');
 const ctx = canvas.getContext('2d');
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+let drawing = false;
 
-// Set the drawing color
-const drawingColor = '#4A148C'; // Dark purple
+// Set the canvas size to the entire viewport
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
 
-let isDrawing = false;
+// Check if the event is inside the container
+function isInContainer(x, y) {
+    const container = document.querySelector('.container');
+    const rect = container.getBoundingClientRect();
+    return x > rect.left && x < rect.right && y > rect.top && y < rect.bottom;
+}
 
-// Start drawing
-canvas.addEventListener('mousedown', (e) => {
-    isDrawing = true;
-    ctx.beginPath();
-    ctx.moveTo(e.clientX, e.clientY);
-});
-
-// Draw on the canvas
-canvas.addEventListener('mousemove', (e) => {
-    if (isDrawing) {
-        ctx.lineTo(e.clientX, e.clientY);
-        ctx.strokeStyle = drawingColor; // Set the stroke color
-        ctx.lineWidth = 5; // Set the line width
-        ctx.stroke();
+// Start drawing when the mouse is clicked outside the container
+canvas.addEventListener('mousedown', (event) => {
+    if (!isInContainer(event.clientX, event.clientY)) {
+        drawing = true;
+        draw(event);  // Start drawing immediately
     }
 });
 
-// Stop drawing
+// Stop drawing when the mouse is released
 canvas.addEventListener('mouseup', () => {
-    isDrawing = false;
-    ctx.closePath();
+    drawing = false;
+    ctx.beginPath();  // Reset the path to avoid connected lines
 });
 
-// Clear the canvas when the mouse leaves
-canvas.addEventListener('mouseout', () => {
-    isDrawing = false;
-    ctx.closePath();
+// Continue drawing as the mouse moves
+canvas.addEventListener('mousemove', (event) => {
+    if (drawing) {
+        draw(event);
+    }
 });
 
-// Resize the canvas on window resize
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    ctx.fillStyle = '#E8EAF6'; // Reset the background color
-    ctx.fillRect(0, 0, canvas.width, canvas.height); // Fill the canvas with the background color
-});
+// Function to draw on the canvas
+function draw(event) {
+    if (!drawing) return;
+
+    ctx.lineWidth = 5;
+    ctx.lineCap = 'round';
+    ctx.strokeStyle = '#4A148C';  // Same purple color as the text
+
+    ctx.lineTo(event.clientX, event.clientY);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(event.clientX, event.clientY);
+}
+
+// Ensure the canvas resizes correctly on window resize
+window.addEventListener('resize', resizeCanvas);
