@@ -18,9 +18,6 @@ function createBouncingImages(x, y) {
         // Add image to the body
         document.body.appendChild(img);
 
-        // Log the image creation (for debugging)
-        console.log(`Added a bouncing Kaary image at ${x}px, ${y}px`);
-
         // Randomize the direction and speed of the bounce
         const randomX = (Math.random() - 0.5) * 300; // Horizontal bounce
         const randomY = (Math.random() - 0.5) * 300; // Vertical bounce
@@ -39,7 +36,6 @@ function createBouncingImages(x, y) {
         // Remove the image from the DOM after animation completes
         setTimeout(() => {
             img.remove();
-            console.log('Removed a bouncing Kaary image.');
         }, duration);
     }
 }

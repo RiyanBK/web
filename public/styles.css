@@ -4,12 +4,13 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
+    cursor: url('/plane.png') 0 10, auto;
     font-family: 'IM Fell English', serif;
     height: 100%;
     margin: 0;
-    overflow: hidden;  /* Prevent scrollbars from showing */
-    background-color: #D1C4E9;  /* Purple background */
+    overflow: hidden;
+    background-color: #D1C4E9;
 }
 
 .fixed-header {
@@ -40,7 +41,7 @@ body {
     border: 2px solid #4A148C;
 }
 
-#drawingCanvas {
+#drawCanvas {
     position: absolute;
     top: 0;
     left: 0;
@@ -48,11 +49,12 @@ body {
     height: 100vh;
     background-color: transparent;
     z-index: 0;
+    cursor: url('plane.png') 0 16, auto !important;
 }
 
 .bouncing-kaary {
-    pointer-events: none; /* Prevent images from capturing click events */
-    z-index: 1000;        /* Ensure they stay on top */
+    pointer-events: none;
+    z-index: 1000;
     transition: all 0.3s ease-in-out;
 }
 
