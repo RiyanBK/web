@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riyan's Drawing Board</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="fixed-header">
@@ -12,6 +13,28 @@
         <h1>Riyan</h1>
     </div>
     <canvas id="drawCanvas"></canvas>
+
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <!-- Firebase Realtime Database -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCWp0A_0dRXqvwIdKQgvQJLPDZFQPvGxDY",
+            authDomain: "riyan-htcs-project.firebaseapp.com",
+            databaseURL: "https://riyan-htcs-project-default-rtdb.firebaseio.com",
+            projectId: "riyan-htcs-project",
+            storageBucket: "riyan-htcs-project.appspot.com",
+            messagingSenderId: "358662073509",
+            appId: "1:358662073509:web:35a4ac91d7c7ca9c8e32bd",
+            measurementId: "G-LR3QFR8CLW"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
 
     <script src="script.js"></script>
     <script src="kaaryBouncing.js"></script>
